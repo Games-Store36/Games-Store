@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Games-Store - Your Gaming Destination</title>
+    <title>Welcome Games-Store - Your Gaming Destination</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -120,6 +120,33 @@
             color: #e0e0e0;
         }
 
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .filter-btn {
+            background-color: #2d3447;
+            color: #e0e0e0;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(90deg, #6c5ce7, #a29bfe);
+            color: white;
+        }
+
+        .filter-btn:hover:not(.active) {
+            background-color: #3a4157;
+        }
+
         .games-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -132,6 +159,7 @@
             overflow: hidden;
             transition: transform 0.3s, box-shadow 0.3s;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
         }
 
         .game-card:hover {
@@ -139,10 +167,46 @@
             box-shadow: 0 15px 30px rgba(108, 92, 231, 0.3);
         }
 
+        .game-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 2;
+        }
+
+        .badge-premium {
+            background: linear-gradient(90deg, #ff9a00, #ff6b00);
+            color: white;
+            box-shadow: 0 4px 10px rgba(255, 107, 0, 0.4);
+        }
+
+        .badge-free {
+            background: linear-gradient(90deg, #00b894, #00a085);
+            color: white;
+            box-shadow: 0 4px 10px rgba(0, 184, 148, 0.4);
+        }
+       
         .game-image {
             width: 100%;
             height: 200px;
             object-fit: cover;
+            position: relative;
+        }
+
+        .game-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: linear-gradient(transparent, #1a1f2e);
         }
 
         .game-info {
@@ -159,6 +223,44 @@
             color: #b0b0b0;
             margin-bottom: 1.5rem;
             font-size: 0.9rem;
+        }
+
+        .game-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: #8a8fa3;
+        }
+
+        .game-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .game-rating i {
+            color: #ff9a00;
+        }
+
+        .premium-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ff9a00;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #8a8fa3;
+            font-size: 1rem;
+            margin-right: 10px;
         }
 
         .download-btn {
@@ -338,6 +440,10 @@
             .team-members {
                 grid-template-columns: 1fr;
             }
+
+            .filter-buttons {
+                flex-wrap: wrap;
+            }
         }
     </style>
 </head>
@@ -352,9 +458,9 @@
             <nav>
                 <ul>
                     <li><a href="#" id="home-link">Home</a></li>
-                    <li><a href="#" id="about-link">About </a></li>
+                    <li><a href="#" id="about-link">About</a></li>
                     <li><a href="#">Games</a></li>
-                    <li><a href="0742838904 ">Contact </a></li>
+                    <li><a href="tel:0742838904">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -371,64 +477,139 @@
     <!-- Games Section -->
     <section class="games-section" id="games-section">
         <h2 class="section-title">Popular Games</h2>
+        
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All Games</button>
+            <button class="filter-btn" data-filter="free">Free Games</button>
+            <button class="filter-btn" data-filter="premium">Premium Games</button>
+        </div>
+        
         <div class="games-grid">
-            <!-- Game Card 1 -->
-            <div class="game-card">
-                <img src="Grand_Theft_Auto V.jpg" alt="gta" class="game-image">
+            <!-- Game Card 1 - Premium -->
+            <div class="game-card" data-category="premium">
+                <div class="game-badge badge-premium">Premium</div>
+                <img src="Grand_Theft_Auto V.jpg" alt="GTA V" class="game-image">
                 <div class="game-info">
-                    <h3 class="game-title">GTA V mod San Andreas </h3>
-                    <p class="game-description">Open world game with high quality graphics .</p>
-                    <a href="#" class="download-btn"><i class="fas fa-download"></i> Download Now</a>
+                    <h3 class="game-title">GTA V Mod San Andreas</h3>
+                    <p class="game-description">Open world game with high quality graphics.</p>
+                    
+                    <div class="premium-price">
+                        <div>
+                            </span>
+                            </span>
+                        </div>
+                        <div class="game-rating">
+                            <i class="fas fa-star"></i>
+                            <span>4.8</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="download-btn"><i class="fas fa-shopping-cart"></i> Download now</a>
                 </div>
             </div>
 
-            <!-- Game Card 2 -->
-            <div class="game-card">
-                <img src="Gta San Andreas .jpeg" alt="gta San Andreas " class="game-image">
+            <!-- Game Card 2 - Free -->
+            <div class="game-card" data-category="free">
+                <div class="game-badge badge-free">Free</div>
+                <img src="Gta San Andreas .jpeg" alt="GTA San Andreas" class="game-image">
                 <div class="game-info">
-                    <h3 class="game-title">GTA San Andreas </h3>
-                    <p class="game-description">The best open world game of all time .</p>
-                    <a href="https://www.mediafire.com/file/041u4yh2l4l79kl/GTA_San_Andreas_Mod_2.11.277-RisTechy.com.apk/file?dkey=gostqitbuxz&r=1536 " class="download-btn"><i class="fas fa-download"></i> Download Now</a>
+                    <h3 class="game-title">GTA San Andreas</h3>
+                    <p class="game-description">The best open world game of all time.</p>
+                    
+                    <div class="game-meta">
+                        <div class="game-rating">
+                            <i class="fas fa-star"></i>
+                            <span>4.7</span>
+                        </div>
+                        <div>Size: 2.1 GB</div>
+                    </div>
+                    
+                    <a href="https://www.mediafire.com/file/041u4yh2l4l79kl/GTA_San_Andreas_Mod_2.11.277-RisTechy.com.apk/file?dkey=gostqitbuxz&r=1536" class="download-btn"><i class="fas fa-download"></i> Download Now</a>
                 </div>
             </div>
 
-            <!-- Game Card 3 -->
-            <div class="game-card">
-                <img src="DFL.jpg" alt="Gfl" class="game-image">
+            <!-- Game Card 3 - Free -->
+            <div class="game-card" data-category="free">
+                <div class="game-badge badge-free">Free</div>
+                <img src="DFL.jpg" alt="DFL" class="game-image">
                 <div class="game-info">
                     <h3 class="game-title">DFL</h3>
-                    <p class="game-description">Football game with some realistic players and kits with high graphic and challenge .</p>
+                    <p class="game-description">Football game with realistic players and kits with high graphics and challenges.</p>
+                    
+                    <div class="game-meta">
+                        <div class="game-rating">
+                            <i class="fas fa-star"></i>
+                            <span>4.5</span>
+                        </div>
+                        <div>Size: 1.5 GB</div>
+                    </div>
+                    
                     <a href="#" class="download-btn"><i class="fas fa-download"></i> Download Now</a>
                 </div>
             </div>
 
-            <!-- Game Card 4 -->
-            <div class="game-card">
-                <img src="bright memory .jpg" alt="bright " class="game-image">
+            <!-- Game Card 4 - Premium -->
+            <div class="game-card" data-category="free">
+                <div class="game-badge badge-free">Free</div>
+                <img src="bright memory .jpg" alt="Bright Memory" class="game-image">
                 <div class="game-info">
-                    <h3 class="game-title">Bright memory </h3>
-                    <p class="game-description">Adventure, Challenges Fight to save the world .</p>
-                    <a href="https://www.mediafire.com/file/jl6mdl8sftoe9ec/bright-memory-infinite-1.31-mod-menu-5play.7z/file" class="download-btn"><i class="fas fa-download"></i> Download Now</a>
+                    <h3 class="game-title">Bright Memory</h3>
+                    <p class="game-description">Adventure, Challenges. Fight to save the world.</p>
+                    
+                    <div>
+                        <div>
+                          </span>
+                        </div>
+                        <div class="game-rating">
+                            <i class="fas fa-star"></i>
+                            <span>Size: 2.4 GB</span>
+                        </div>
+                    </div>
+                    
+                     <a href="https://www.mediafire.com/file/jl6mdl8sftoe9ec/bright-memory-infinite-1.31-mod-menu-5play.7z/file" class="download-btn"><i class="fas fa-download"></i> Download now</a>
                 </div>
             </div>
 
-            <!-- Game Card 5 -->
-            <div class="game-card">
-                <img src="Battle field .jpg" alt="battlefield " class="game-image">
+            <!-- Game Card 5 - Free -->
+            <div class="game-card" data-category="free">
+                <div class="game-badge badge-free">Free</div>
+                <img src="Battle field .jpg" alt="Battlefield" class="game-image">
                 <div class="game-info">
-                    <h3 class="game-title">battlefield </h3>
-                    <p class="game-description">Fight for your life with enemies and make them regret .</p>
+                    <h3 class="game-title">Battlefield</h3>
+                    <p class="game-description">Fight for your life with enemies and make them regret.</p>
+                    
+                    <div class="game-meta">
+                        <div class="game-rating">
+                            <i class="fas fa-star"></i>
+                            <span>4.4</span>
+                        </div>
+                        <div>Size: 3.2</div>
+                    </div>
+                    
                     <a href="#" class="download-btn"><i class="fas fa-download"></i> Download Now</a>
                 </div>
             </div>
 
-            <!-- Game Card 6 -->
-            <div class="game-card">
-                <img src="Ufc 5.jpg" alt="ufc 5" class="game-image">
+            <!-- Game Card 6 - Premium -->
+            <div class="game-card" data-category="free">
+                <div class="game-badge badge-free">Free</div>
+                <img src="Ufc 5.jpg" alt="UFC 5" class="game-image">
                 <div class="game-info">
                     <h3 class="game-title">UFC 5</h3>
                     <p class="game-description">Good challenge and high quality game.</p>
-                    <a href="#" class="download-btn"><i class="fas fa-download"></i> Download Now</a>
+                    
+                    <div>
+                        <div>
+                           </span>
+                            </span>
+                        </div>
+                        <div class="game-rating">
+                            <i class="fas fa-star"></i>
+                            <span>4.9</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="download-btn"><i class="fas fa-download"></i> Download here</a>
                 </div>
             </div>
         </div>
@@ -440,7 +621,7 @@
         <div class="about-content">
             <div class="about-text">
                 <h3>Our Mission</h3>
-                <p>Games-Storeis dedicated to providing gamers with the best selection of free-to-play games. We believe that everyone should have access to high-quality gaming experiences without barriers. Our platform curates the most exciting and engaging games from developers around the world.</p>
+                <p>Games-Store is dedicated to providing gamers with the best selection of free-to-play and premium games. We believe that everyone should have access to high-quality gaming experiences. Our platform curates the most exciting and engaging games from developers around the world.</p>
             </div>
             
             <div class="about-text">
@@ -452,18 +633,18 @@
                 <h3>Meet Our Team</h3>
                 <div class="team-members">
                     <div class="team-member">
-                        <img src="Lastborn .jpg" alt="Team member ">
-                        <h4>Lastborn </h4>
+                        <img src="Lastborn .jpg" alt="Lastborn">
+                        <h4>Lastborn</h4>
                         <p>Founder & CEO</p>
                     </div>
                     <div class="team-member">
-                        <img src="" alt="Team Member">
-                        <h4></h4>
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Team Member">
+                        <h4>Sarah Johnson</h4>
                         <p>Head of Content</p>
                     </div>
                     <div class="team-member">
-                        <img src="" alt="Team Member">
-                        <h4></h4>
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Team Member">
+                        <h4>Michael Chen</h4>
                         <p>Lead Developer</p>
                     </div>
                 </div>
@@ -481,13 +662,13 @@
                 <a href="#"><i class="fab fa-twitter"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
                 <a href="#"><i class="fab fa-whatsapp"></i></a>
-                <a href="0742838904 "><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
             <div class="footer-links">
                 <a href="#">Home</a>
                 <a href="#">Games</a>
                 <a href="#">About Us</a>
-                <a href="0742838904 ">Contact</a>
+                <a href="tel:0742838904">Contact</a>
                 <a href="#">Privacy Policy</a>
                 <a href="#">Terms of Service</a>
             </div>
@@ -516,6 +697,37 @@
             document.getElementById('games-section').style.display = 'block';
             document.getElementById('about-page').style.display = 'none';
             window.scrollTo(0, 0);
+        });
+
+        // Filter games by category
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const gameCards = document.querySelectorAll('.game-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Show/hide game cards based on filter
+                    gameCards.forEach(card => {
+                        if (filterValue === 'all') {
+                            card.style.display = 'block';
+                        } else {
+                            if (card.getAttribute('data-category') === filterValue) {
+                                card.style.display = 'block';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
         });
     </script>
 </body>
