@@ -274,11 +274,55 @@
             transition: all 0.3s;
             width: 100%;
             text-align: center;
+            margin-bottom: 0.5rem;
         }
 
         .download-btn:hover {
             background: linear-gradient(90deg, #5b4bc4, #8a7ff0);
             box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+        }
+
+        .download-btn-secondary {
+            display: inline-block;
+            background: transparent;
+            color: #6c5ce7;
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            width: 100%;
+            text-align: center;
+            border: 2px solid #6c5ce7;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .download-btn-secondary:hover {
+            background: rgba(108, 92, 231, 0.1);
+        }
+
+        .download-btn-tertiary {
+            display: inline-block;
+            background: linear-gradient(90deg, #00b894, #00a085);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            width: 100%;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .download-btn-tertiary:hover {
+            background: linear-gradient(90deg, #00a085, #008c72);
+            box-shadow: 0 5px 15px rgba(0, 184, 148, 0.4);
         }
 
         /* About Us Page */
@@ -411,6 +455,17 @@
             color: #6c5ce7;
         }
 
+        .help-note {
+            background: linear-gradient(90deg, #ff9a00, #ff6b00);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            margin: 1rem 0;
+            font-weight: 600;
+            max-width: 800px;
+        }
+
         .copyright {
             color: #777;
             text-align: center;
@@ -459,7 +514,7 @@
                 <ul>
                     <li><a href="#" id="home-link">Home</a></li>
                     <li><a href="#" id="about-link">About</a></li>
-                    <li><a href="#">Games</a></li>
+                    <li><a href="#games-section">Games</a></li>
                     <li><a href="tel:0742838904">Contact</a></li>
                 </ul>
             </nav>
@@ -495,8 +550,6 @@
                     
                     <div class="premium-price">
                         <div>
-                            </span>
-                            </span>
                         </div>
                         <div class="game-rating">
                             <i class="fas fa-star"></i>
@@ -504,7 +557,20 @@
                         </div>
                     </div>
                     
-                    <a href="#" class="download-btn"><i class="fas fa-shopping-cart"></i> Download now</a>
+                    <!-- Primary Download Button -->
+                    <a href="https://www.mediafire.com/file/dlsjqcr5vscamm7/Mali-GTA_v_style_graphics.7z/file" class="download-btn">
+                        <i class="fas fa-download"></i> Download Mali-GTA_V
+                    </a>
+                    
+                    <!-- Additional Download Button 1 -->
+                    <a href="https://www.mediafire.com/file/4kvv2569snq7a4v/Aderno-GTA_V_style_graphics.7z/file" class="download-btn">
+                        <i class="fas fa-download"></i> Download Aderno-GTA_V
+                    </a>
+                    
+                    <!-- Additional Download Button 2 -->
+                    <a href="https://www.mediafire.com/file/nc1kzihgvociv8t/Power_Vr-GTA_V_style_Graphics.7z/file" class="download-btn">
+                        <i class="fas fa-download"></i> Download Power_Vr_Gta V 
+                    </a>
                 </div>
             </div>
 
@@ -524,7 +590,9 @@
                         <div>Size: 2.1 GB</div>
                     </div>
                     
-                    <a href="https://www.mediafire.com/file/041u4yh2l4l79kl/GTA_San_Andreas_Mod_2.11.277-RisTechy.com.apk/file?dkey=gostqitbuxz&r=1536" class="download-btn"><i class="fas fa-download"></i> Download Now</a>
+                    <a href="https://www.mediafire.com/file/041u4yh2l4l79kl/GTA_San_Andreas_Mod_2.11.277-RisTechy.com.apk/file?dkey=gostqitbuxz&r=1536" class="download-btn">
+                        <i class="fas fa-download"></i> Download Now
+                    </a>
                 </div>
             </div>
 
@@ -544,11 +612,24 @@
                         <div>Size: 1.5 GB</div>
                     </div>
                     
-                    <a href="#" class="download-btn"><i class="fas fa-download"></i> Download Now</a>
+                    <!-- Primary Download Button -->
+                    <a href="https://www.mediafire.com/file/w4gemj9sdq5ywr6/DFL+2025+Mod+-+RisTechy.com.apk/file " class="download-btn">
+                        <i class="fas fa-download"></i> Download Apk
+                    </a>
+                    
+                    <!-- Additional Download Button 1 -->
+                    <a href="https://www.mediafire.com/file/k4oe3jpzzynh8dt/Data+DFL+2025+Mod+FIFA+16+V4.0+-+RisTechy.com.rar/file" class="download-btn">
+                        <i class="fas fa-download"></i> Download Data
+                    </a>
+                    
+                    <!-- Additional Download Button 2 -->
+                    <a href="https://www.mediafire.com/file/myt46inwwr9fnr4/Obb_FIFA_2016_Ultimate_Team_-_RisTechy.com.rar/file" class="download-btn">
+                        <i class="fas fa-download"></i> Download Obb 
+                    </a>
                 </div>
             </div>
 
-            <!-- Game Card 4 - Premium -->
+            <!-- Game Card 4 - Free -->
             <div class="game-card" data-category="free">
                 <div class="game-badge badge-free">Free</div>
                 <img src="bright memory .jpg" alt="Bright Memory" class="game-image">
@@ -556,26 +637,26 @@
                     <h3 class="game-title">Bright Memory</h3>
                     <p class="game-description">Adventure, Challenges. Fight to save the world.</p>
                     
-                    <div>
-                        <div>
-                          </span>
-                        </div>
+                    <div class="game-meta">
                         <div class="game-rating">
                             <i class="fas fa-star"></i>
-                            <span>Size: 2.4 GB</span>
+                            <span>4.6</span>
                         </div>
+                        <div>Size: 2.4 GB</div>
                     </div>
                     
-                     <a href="https://www.mediafire.com/file/jl6mdl8sftoe9ec/bright-memory-infinite-1.31-mod-menu-5play.7z/file" class="download-btn"><i class="fas fa-download"></i> Download now</a>
+                    <a href="https://www.mediafire.com/file/jl6mdl8sftoe9ec/bright-memory-infinite-1.31-mod-menu-5play.7z/file" class="download-btn">
+                        <i class="fas fa-download"></i> Download Now
+                    </a>
                 </div>
             </div>
 
             <!-- Game Card 5 - Free -->
             <div class="game-card" data-category="free">
                 <div class="game-badge badge-free">Free</div>
-                <img src="Red dead redemption .jpg" alt="Red Dead Redemption " class="game-image">
+                <img src="UFL.jpg" alt="UFL" class="game-image">
                 <div class="game-info">
-                    <h3 class="game-title">Red Dead Redemption </h3>
+                    <h3 class="game-title">UFL</h3>
                     <p class="game-description">Fight for your life with enemies and make them regret.</p>
                     
                     <div class="game-meta">
@@ -583,33 +664,34 @@
                             <i class="fas fa-star"></i>
                             <span>4.4</span>
                         </div>
-                        <div>Size: 3.2</div>
+                        <div>Size: 3.2 GB</div>
                     </div>
                     
-                    <a href="#" class="download-btn"><i class="fas fa-download"></i> Download Now</a>
+                    <a href="#" class="download-btn">
+                        <i class="fas fa-download"></i> Download Now
+                    </a>
                 </div>
             </div>
 
-            <!-- Game Card 6 - Premium -->
+            <!-- Game Card 6 - Free -->
             <div class="game-card" data-category="free">
                 <div class="game-badge badge-free">Free</div>
-                <img src="call of duty .jpg" alt="Call of duty " class="game-image">
+                <img src="call of duty .jpg" alt="Call of Duty" class="game-image">
                 <div class="game-info">
-                    <h3 class="game-title">Call Of Duty </h3>
+                    <h3 class="game-title">Call Of Duty</h3>
                     <p class="game-description">Good challenge and high quality game.</p>
                     
-                    <div>
-                        <div>
-                           </span>
-                            </span>
-                        </div>
+                    <div class="game-meta">
                         <div class="game-rating">
                             <i class="fas fa-star"></i>
                             <span>4.9</span>
                         </div>
+                        <div>Size: 4.1 GB</div>
                     </div>
                     
-                    <a href="#" class="download-btn"><i class="fas fa-download"></i> Download here</a>
+                    <a href="#" class="download-btn">
+                        <i class="fas fa-download"></i> Download Now
+                    </a>
                 </div>
             </div>
         </div>
@@ -639,7 +721,7 @@
                     </div>
                     <div class="team-member">
                         <img src="" alt="Team Member">
-                        <h4>Sarah Johnson</h4>
+                        <h4></h4>
                         <p>Head of Content</p>
                     </div>
                     <div class="team-member">
@@ -662,16 +744,19 @@
                 <a href="#"><i class="fab fa-twitter"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
                 <a href="#"><i class="fab fa-whatsapp"></i></a>
-                <a href="tel:0742838904"><i class="fab fa-youtube"></i></a>
+                <a href="0742838904 "><i class="fab fa-youtube"></i></a>
             </div>
             <div class="footer-links">
                 <a href="#">Home</a>
-                <a href="#">Games</a>
-                <a href="#">About Us</a>
-                <a href="0742838904">Contact</a>
+                <a href="#games-section">Games</a>
+                <a href="#about-page">About Us</a>
+                <a href="tel:0742838904">Contact</a>
                 <a href="#">Privacy Policy</a>
-                <a href="0742838904 ">Help Center </a>
-            </div>NOTE:KAMA UME DOWNLOAD GAME ALAF LINAHITAJI PIN TUTAFUTE KWENY NAMBA 0742838904 Au BONYEZA HELP CENTER 
+                <a href="tel:0742838904">Help Center</a>
+            </div>
+            <div class="help-note">
+                NOTE: KAMA UME DOWNLOAD GAME ALAF LINAHITAJI PIN TUTAFUTE KWENY NAMBA 0742838904 Au BONYEZA HELP CENTER
+            </div>
             <p class="copyright">© 2025 Chanyo Games-Store. All rights reserved.</p>
         </div>
     </footer>
