@@ -106,6 +106,189 @@
             color: #b0b0b0;
         }
 
+        /* Trending Games Slider - Moved between Hero and Search */
+        .trending-section {
+            background: linear-gradient(90deg, #1a1f2e, #2d3447);
+            padding: 2.5rem 0;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 0;
+            border-radius: 0;
+            border-bottom: 3px solid #6c5ce7;
+        }
+
+        .trending-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .trending-header h2 {
+            font-size: 2.2rem;
+            background: linear-gradient(90deg, #ff9a00, #ff6b00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            text-shadow: 0 2px 10px rgba(255, 107, 0, 0.3);
+        }
+
+        .trending-slider {
+            display: flex;
+            animation: slide 25s linear infinite;
+            gap: 2.5rem;
+            padding: 0 2rem;
+        }
+
+        .trending-slider:hover {
+            animation-play-state: paused;
+        }
+
+        .trending-item {
+            flex: 0 0 auto;
+            background: rgba(26, 31, 46, 0.9);
+            border-radius: 12px;
+            padding: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            min-width: 350px;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 2px solid rgba(108, 92, 231, 0.4);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .trending-item:hover {
+            transform: translateY(-8px);
+            background: rgba(108, 92, 231, 0.15);
+            box-shadow: 0 15px 30px rgba(108, 92, 231, 0.3);
+            border-color: rgba(108, 92, 231, 0.7);
+        }
+
+        .trending-item img {
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .trending-info h4 {
+            color: #fff;
+            margin-bottom: 0.4rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .trending-info p {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Search Section */
+        .search-section {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .search-container {
+            background-color: #1a1f2e;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .search-container h2 {
+            color: #6c5ce7;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            justify-content: center;
+        }
+
+        .search-input {
+            flex: 1;
+            max-width: 400px;
+            padding: 0.8rem 1rem;
+            border-radius: 5px;
+            border: 1px solid #2d3447;
+            background-color: #0f1419;
+            color: #e0e0e0;
+            font-size: 1rem;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #6c5ce7;
+        }
+
+        .search-btn {
+            background: linear-gradient(90deg, #6c5ce7, #a29bfe);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .search-btn:hover {
+            background: linear-gradient(90deg, #5b4bc4, #8a7ff0);
+            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+        }
+
+        .whatsapp-info {
+            background: linear-gradient(90deg, #25D366, #128C7E);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1.5rem;
+        }
+
+        .whatsapp-info h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .whatsapp-info p {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .whatsapp-link {
+            display: inline-block;
+            background: white;
+            color: #25D366;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .whatsapp-link:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
         /* Games Section */
         .games-section {
             padding: 4rem 2rem;
@@ -282,49 +465,6 @@
             box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
         }
 
-        .download-btn-secondary {
-            display: inline-block;
-            background: transparent;
-            color: #6c5ce7;
-            padding: 0.7rem 1.5rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            width: 100%;
-            text-align: center;
-            border: 2px solid #6c5ce7;
-            cursor: pointer;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .download-btn-secondary:hover {
-            background: rgba(108, 92, 231, 0.1);
-        }
-
-        .download-btn-tertiary {
-            display: inline-block;
-            background: linear-gradient(90deg, #00b894, #00a085);
-            color: white;
-            padding: 0.7rem 1.5rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            width: 100%;
-            text-align: center;
-            border: none;
-            cursor: pointer;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .download-btn-tertiary:hover {
-            background: linear-gradient(90deg, #00a085, #008c72);
-            box-shadow: 0 5px 15px rgba(0, 184, 148, 0.4);
-        }
-
         /* About Us Page */
         .about-page {
             display: none;
@@ -499,6 +639,28 @@
             .filter-buttons {
                 flex-wrap: wrap;
             }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+            .search-input {
+                max-width: 100%;
+            }
+
+            .trending-item {
+                min-width: 280px;
+                padding: 1rem;
+            }
+
+            .trending-item img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .trending-header h2 {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
@@ -529,9 +691,72 @@
         </div>
     </section>
 
+    <!-- Trending Games Slider - Now between Hero and Search -->
+    <section class="trending-section">
+        <div class="trending-header">
+            <h2><i class="fas fa-fire"></i> TRENDING GAMES</h2>
+        </div>
+        <div class="trending-slider">
+            <div class="trending-item" data-game="GTA V Mod San Andreas">
+                <img src="Grand_Theft_Auto V.jpg" alt="GTA V">
+                <div class="trending-info">
+                    <h4>GTA V Mod San Andreas</h4>
+                    <p>Open world adventure</p>
+                </div>
+            </div>
+            <div class="trending-item" data-game="DFL">
+                <img src="DFL.jpg" alt="DFL">
+                <div class="trending-info">
+                    <h4>DFL Football</h4>
+                    <p>Realistic football experience</p>
+                </div>
+            </div>
+            <div class="trending-item" data-game="UFL">
+                <img src="UFL.jpg" alt="UFL">
+                <div class="trending-info">
+                    <h4>UFL</h4>
+                    <p>Best football game ever</p>
+                </div>
+            </div>
+            <div class="trending-item" data-game="Call Of Duty">
+                <img src="call of duty .jpg" alt="Call of Duty">
+                <div class="trending-info">
+                    <h4>Call Of Duty</h4>
+                    <p>High quality challenge</p>
+                </div>
+            </div>
+            <div class="trending-item" data-game="Bright Memory">
+                <img src="bright memory .jpg" alt="Bright Memory">
+                <div class="trending-info">
+                    <h4>Bright Memory</h4>
+                    <p>Adventure challenges</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="search-container">
+            <h2><i class="fas fa-search"></i> Find Your Game</h2>
+            <div class="search-box">
+                <input type="text" class="search-input" id="game-search" placeholder="Search for games...">
+                <button class="search-btn" id="search-button">Search</button>
+            </div>
+            <div class="whatsapp-info">
+                <h3><i class="fab fa-whatsapp"></i> WhatsApp Channel Integration</h3>
+                <p>Share game links directly from our WhatsApp channel!</p>
+                <p>When you post a game name in your WhatsApp channel with our website name and game picture, users can tap to go directly to the game.</p>
+                <a href="https://whatsapp.com/channel/0029VbBxz643gvWXQuztjf3C" class="whatsapp-link">
+                    <i class="fab fa-whatsapp"></i> Join Our WhatsApp Channel
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Games Section -->
     <section class="games-section" id="games-section">
-        <h2 class="section-title">Popular Games</h2>
+        <h2 class="section-title">Games</h2>
         
         <div class="filter-buttons">
             <button class="filter-btn active" data-filter="all">All Games</button>
@@ -541,7 +766,7 @@
         
         <div class="games-grid">
             <!-- Game Card 1 - Premium -->
-            <div class="game-card" data-category="premium">
+            <div class="game-card" data-category="premium" data-game="GTA V Mod San Andreas">
                 <div class="game-badge badge-premium">Premium</div>
                 <img src="Grand_Theft_Auto V.jpg" alt="GTA V" class="game-image">
                 <div class="game-info">
@@ -575,7 +800,7 @@
             </div>
 
             <!-- Game Card 2 - Free -->
-            <div class="game-card" data-category="free">
+            <div class="game-card" data-category="free" data-game="GTA San Andreas">
                 <div class="game-badge badge-free">Free</div>
                 <img src="Gta San Andreas .jpeg" alt="GTA San Andreas" class="game-image">
                 <div class="game-info">
@@ -597,7 +822,7 @@
             </div>
 
             <!-- Game Card 3 - Free -->
-            <div class="game-card" data-category="free">
+            <div class="game-card" data-category="free" data-game="DFL">
                 <div class="game-badge badge-free">Free</div>
                 <img src="DFL.jpg" alt="DFL" class="game-image">
                 <div class="game-info">
@@ -623,14 +848,14 @@
                     </a>
                     
                     <!-- Additional Download Button 2 -->
-                    <a href="https://www.mediafire.com/file/myt46inwwr9fnr4/Obb_FIFA_2016_Ultimate_Team_-_RisTechy.com.rar/file" class="download-btn">
+                    <a href="https://www.mediafire.com/file/myt46inwwr9fnr4/Obb_FIFA_2016_Ultimate_Team_-+RisTechy.com.rar/file" class="download-btn">
                         <i class="fas fa-download"></i> Download Obb 
                     </a>
                 </div>
             </div>
 
             <!-- Game Card 4 - Free -->
-            <div class="game-card" data-category="free">
+            <div class="game-card" data-category="free" data-game="Bright Memory">
                 <div class="game-badge badge-free">Free</div>
                 <img src="bright memory .jpg" alt="Bright Memory" class="game-image">
                 <div class="game-info">
@@ -652,8 +877,8 @@
             </div>
 
             <!-- Game Card 5 - Free -->
-            <div class="game-card" data-category="free">
-                <div class="game-badge badge-free">Free</div>
+            <div class="game-card" data-category="free" data-game="UFL">
+                <div class="game-badge badge-premium">Premium </div>
                 <img src="UFL.jpg" alt="UFL" class="game-image">
                 <div class="game-info">
                     <h3 class="game-title">UFL</h3>
@@ -686,7 +911,7 @@
             </div>
 
             <!-- Game Card 6 - Free -->
-            <div class="game-card" data-category="free">
+            <div class="game-card" data-category="free" data-game="Call Of Duty">
                 <div class="game-badge badge-free">Free</div>
                 <img src="call of duty .jpg" alt="Call of Duty" class="game-image">
                 <div class="game-info">
@@ -727,18 +952,18 @@
                 <h3>Meet Our Team</h3>
                 <div class="team-members">
                     <div class="team-member">
-                        <img src="Lastborn .jpg" alt="Lastborn">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Lastborn">
                         <h4>Lastborn</h4>
                         <p>Founder & CEO</p>
                     </div>
                     <div class="team-member">
-                        <img src="" alt="Team Member">
-                        <h4></h4>
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Team Member">
+                        <h4>Sarah Johnson</h4>
                         <p>Head of Content</p>
                     </div>
                     <div class="team-member">
-                        <img src="" alt="Team Member">
-                        <h4></h4>
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Team Member">
+                        <h4>Michael Chen</h4>
                         <p>Lead Developer</p>
                     </div>
                 </div>
@@ -823,6 +1048,54 @@
                             }
                         }
                     });
+                });
+            });
+            
+            // Game search functionality
+            const searchInput = document.getElementById('game-search');
+            const searchButton = document.getElementById('search-button');
+            
+            searchButton.addEventListener('click', function() {
+                const searchTerm = searchInput.value.toLowerCase().trim();
+                
+                if (searchTerm) {
+                    gameCards.forEach(card => {
+                        const gameName = card.getAttribute('data-game').toLowerCase();
+                        if (gameName.includes(searchTerm)) {
+                            card.style.display = 'block';
+                            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                    
+                    // Reset filter buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    document.querySelector('[data-filter="all"]').classList.add('active');
+                }
+            });
+            
+            // Trending items click functionality
+            const trendingItems = document.querySelectorAll('.trending-item');
+            trendingItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const gameName = this.getAttribute('data-game');
+                    searchInput.value = gameName;
+                    
+                    // Trigger search
+                    gameCards.forEach(card => {
+                        const cardGameName = card.getAttribute('data-game');
+                        if (cardGameName === gameName) {
+                            card.style.display = 'block';
+                            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                    
+                    // Reset filter buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    document.querySelector('[data-filter="all"]').classList.add('active');
                 });
             });
         });
