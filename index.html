@@ -76,6 +76,177 @@
             background-color: rgba(108, 92, 231, 0.1);
         }
 
+        /* Header Actions */
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .theme-toggle, .cart-icon, .music-toggle {
+            background: none;
+            border: none;
+            color: #e0e0e0;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            padding: 0.5rem;
+            border-radius: 50%;
+        }
+
+        .theme-toggle:hover, .cart-icon:hover, .music-toggle:hover {
+            background-color: rgba(108, 92, 231, 0.1);
+            transform: scale(1.1);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #ff4757;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        .cart-icon, .music-toggle {
+            position: relative;
+        }
+
+        /* Music Player */
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #1a1f2e;
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            z-index: 100;
+            width: 300px;
+            display: none;
+            border: 2px solid #6c5ce7;
+        }
+
+        .music-player.active {
+            display: block;
+        }
+
+        .music-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .music-header h3 {
+            color: #6c5ce7;
+            margin: 0;
+        }
+
+        .close-music {
+            background: none;
+            border: none;
+            color: #e0e0e0;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .music-info {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .music-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .music-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .music-btn {
+            background: none;
+            border: none;
+            color: #e0e0e0;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .music-btn:hover {
+            color: #6c5ce7;
+        }
+
+        .play-pause {
+            background: #6c5ce7;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .music-progress {
+            width: 100%;
+            height: 5px;
+            background: #2d3447;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .music-progress-bar {
+            height: 100%;
+            background: #6c5ce7;
+            width: 0%;
+            transition: width 0.1s;
+        }
+
+        .music-time {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #b0b0b0;
+        }
+
+        .music-playlist {
+            margin-top: 1rem;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+
+        .playlist-item {
+            padding: 0.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .playlist-item:hover {
+            background: rgba(108, 92, 231, 0.1);
+        }
+
+        .playlist-item.active {
+            background: rgba(108, 92, 231, 0.2);
+            color: #6c5ce7;
+        }
+
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(15, 20, 25, 0.8), rgba(15, 20, 25, 0.9)), 
@@ -374,6 +545,33 @@
             color: white;
             box-shadow: 0 4px 10px rgba(0, 184, 148, 0.4);
         }
+
+        /* Wishlist Button */
+        .wishlist-btn {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 2;
+            color: white;
+        }
+
+        .wishlist-btn:hover {
+            background: rgba(255, 0, 0, 0.7);
+        }
+
+        .wishlist-btn.active {
+            background: rgba(255, 0, 0, 0.7);
+        }
        
         .game-image {
             width: 100%;
@@ -416,16 +614,6 @@
             color: #8a8fa3;
         }
 
-        .game-rating {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .game-rating i {
-            color: #ff9a00;
-        }
-
         .premium-price {
             display: flex;
             justify-content: space-between;
@@ -461,6 +649,75 @@
         }
 
         .download-btn:hover {
+            background: linear-gradient(90deg, #5b4bc4, #8a7ff0);
+            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+        }
+
+        .add-to-cart {
+            background: linear-gradient(90deg, #00b894, #00a085);
+        }
+
+        .add-to-cart:hover {
+            background: linear-gradient(90deg, #00a085, #008c75);
+            box-shadow: 0 5px 15px rgba(0, 184, 148, 0.4);
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .newsletter-container {
+            background-color: #1a1f2e;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .newsletter-container h2 {
+            color: #6c5ce7;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            max-width: 400px;
+            padding: 0.8rem 1rem;
+            border-radius: 5px;
+            border: 1px solid #2d3447;
+            background-color: #0f1419;
+            color: #e0e0e0;
+            font-size: 1rem;
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: #6c5ce7;
+        }
+
+        .newsletter-btn {
+            background: linear-gradient(90deg, #6c5ce7, #a29bfe);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .newsletter-btn:hover {
             background: linear-gradient(90deg, #5b4bc4, #8a7ff0);
             box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
         }
@@ -613,6 +870,133 @@
             font-size: 0.9rem;
         }
 
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #1a1f2e;
+            padding: 2rem;
+            border-radius: 10px;
+            width: 400px;
+            max-width: 90%;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-header h2 {
+            color: #6c5ce7;
+            margin: 0;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: #e0e0e0;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .modal-body {
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+
+        .modal-btn {
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .modal-btn.primary {
+            background: linear-gradient(90deg, #6c5ce7, #a29bfe);
+            color: white;
+        }
+
+        .modal-btn.secondary {
+            background-color: #2d3447;
+            color: #e0e0e0;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #1a1f2e;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .loading-spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 5px solid #6c5ce7;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .header-container {
@@ -661,6 +1045,20 @@
             .trending-header h2 {
                 font-size: 1.8rem;
             }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-input {
+                max-width: 100%;
+            }
+
+            .music-player {
+                width: 90%;
+                right: 5%;
+                bottom: 10px;
+            }
         }
     </style>
 </head>
@@ -680,8 +1078,67 @@
                     <li><a href="tel:0742838904">Contact</a></li>
                 </ul>
             </nav>
+            <div class="header-actions">
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="cart-icon" id="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </button>
+                <button class="music-toggle" id="music-toggle">
+                    <i class="fas fa-music"></i>
+                </button>
+            </div>
         </div>
     </header>
+
+    <!-- Music Player -->
+    <div class="music-player" id="music-player">
+        <div class="music-header">
+            <h3>Game Music Player</h3>
+            <button class="close-music" id="close-music">&times;</button>
+        </div>
+        <div class="music-info">
+            <div class="music-title" id="music-title">Select a track</div>
+        </div>
+        <div class="music-controls">
+            <button class="music-btn" id="prev-btn">
+                <i class="fas fa-step-backward"></i>
+            </button>
+            <button class="music-btn play-pause" id="play-pause-btn">
+                <i class="fas fa-play" id="play-icon"></i>
+            </button>
+            <button class="music-btn" id="next-btn">
+                <i class="fas fa-step-forward"></i>
+            </button>
+        </div>
+        <div class="music-progress">
+            <div class="music-progress-bar" id="progress-bar"></div>
+        </div>
+        <div class="music-time">
+            <span id="current-time">0:00</span>
+            <span id="total-time">0:00</span>
+        </div>
+        <div class="music-playlist" id="playlist">
+            <div class="playlist-item active" data-src="7 Years (Sik World Cover Remix).mp3">
+                <i class="fas fa-play"></i>
+                <span>Epic Gaming Theme</span>
+            </div>
+            <div class="playlist-item" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3">
+                <i class="fas fa-play"></i>
+                <span>Adventure Quest</span>
+            </div>
+            <div class="playlist-item" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3">
+                <i class="fas fa-play"></i>
+                <span>Battle Anthem</span>
+            </div>
+            <div class="playlist-item" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3">
+                <i class="fas fa-play"></i>
+                <span>Victory Celebration</span>
+            </div>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -768,6 +1225,9 @@
             <!-- Game Card 1 - Premium -->
             <div class="game-card" data-category="premium" data-game="GTA V Mod San Andreas">
                 <div class="game-badge badge-premium">Premium</div>
+                <button class="wishlist-btn" data-game="GTA V Mod San Andreas">
+                    <i class="far fa-heart"></i>
+                </button>
                 <img src="Grand_Theft_Auto V.jpg" alt="GTA V" class="game-image">
                 <div class="game-info">
                     <h3 class="game-title">GTA V Mod San Andreas</h3>
@@ -775,10 +1235,6 @@
                     
                     <div class="premium-price">
                         <div>
-                        </div>
-                        <div class="game-rating">
-                            <i class="fas fa-star"></i>
-                            <span>4.8</span>
                         </div>
                     </div>
                     
@@ -796,22 +1252,27 @@
                     <a href="https://www.mediafire.com/file/nc1kzihgvociv8t/Power_Vr-GTA_V_style_Graphics.7z/file" class="download-btn">
                         <i class="fas fa-download"></i> Download Power_Vr_Gta V 
                     </a>
+                    
+                    <!-- Add to Cart Button -->
+                    <button class="download-btn add-to-cart" data-game="GTA V Mod San Andreas" data-price="29.99">
+                        <i class="fas fa-cart-plus"></i> Add to Cart - $29.99
+                    </button>
                 </div>
             </div>
 
             <!-- Game Card 2 - Free -->
             <div class="game-card" data-category="free" data-game="GTA San Andreas">
                 <div class="game-badge badge-free">Free</div>
+                <button class="wishlist-btn" data-game="GTA San Andreas">
+                    <i class="far fa-heart"></i>
+                </button>
                 <img src="Gta San Andreas .jpeg" alt="GTA San Andreas" class="game-image">
                 <div class="game-info">
                     <h3 class="game-title">GTA San Andreas</h3>
                     <p class="game-description">The best open world game of all time.</p>
                     
                     <div class="game-meta">
-                        <div class="game-rating">
-                            <i class="fas fa-star"></i>
-                            <span>4.7</span>
-                        </div>
+                        <div></div>
                         <div></div>
                     </div>
                     
@@ -824,16 +1285,16 @@
             <!-- Game Card 3 - Free -->
             <div class="game-card" data-category="free" data-game="DFL">
                 <div class="game-badge badge-free">Free</div>
+                <button class="wishlist-btn" data-game="DFL">
+                    <i class="far fa-heart"></i>
+                </button>
                 <img src="DFL.jpg" alt="DFL" class="game-image">
                 <div class="game-info">
                     <h3 class="game-title">DFL</h3>
                     <p class="game-description">Football game with realistic players and kits with high graphics and challenges.</p>
                     
                     <div class="game-meta">
-                        <div class="game-rating">
-                            <i class="fas fa-star"></i>
-                            <span>4.5</span>
-                        </div>
+                        <div></div>
                         <div></div>
                     </div>
                     
@@ -857,16 +1318,16 @@
             <!-- Game Card 4 - Free -->
             <div class="game-card" data-category="free" data-game="Bright Memory">
                 <div class="game-badge badge-free">Free</div>
+                <button class="wishlist-btn" data-game="Bright Memory">
+                    <i class="far fa-heart"></i>
+                </button>
                 <img src="bright memory .jpg" alt="Bright Memory" class="game-image">
                 <div class="game-info">
                     <h3 class="game-title">Bright Memory</h3>
                     <p class="game-description">Adventure, Challenges. Fight to save the world.</p>
                     
                     <div class="game-meta">
-                        <div class="game-rating">
-                            <i class="fas fa-star"></i>
-                            <span>4.6</span>
-                        </div>
+                        <div></div>
                         <div></div>
                     </div>
                     
@@ -879,16 +1340,16 @@
             <!-- Game Card 5 - Free -->
             <div class="game-card" data-category="free" data-game="UFL">
                 <div class="game-badge badge-premium">Premium </div>
+                <button class="wishlist-btn" data-game="UFL">
+                    <i class="far fa-heart"></i>
+                </button>
                 <img src="UFL.jpg" alt="UFL" class="game-image">
                 <div class="game-info">
                     <h3 class="game-title">UFL</h3>
                     <p class="game-description">The best football game Ever in this world with high graphics .</p>
                     
                     <div class="game-meta">
-                        <div class="game-rating">
-                            <i class="fas fa-star"></i>
-                            <span>4.4</span>
-                        </div>
+                        <div></div>
                         <div></div>
                     </div>
                     
@@ -905,7 +1366,7 @@
                         </a>
                         <!-- Additional Download Button 3 -->
                     <a href="" class="download-btn">
-                        <i class="fas fa-download"></i> Download Comentary 
+                        <i class="fas fa-download"></i> Download Commentary 
                         </a>
                 </div>
             </div>
@@ -913,16 +1374,16 @@
             <!-- Game Card 6 - Free -->
             <div class="game-card" data-category="free" data-game="Call Of Duty">
                 <div class="game-badge badge-free">Free</div>
+                <button class="wishlist-btn" data-game="Call Of Duty">
+                    <i class="far fa-heart"></i>
+                </button>
                 <img src="call of duty .jpg" alt="Call of Duty" class="game-image">
                 <div class="game-info">
                     <h3 class="game-title">Call Of Duty</h3>
                     <p class="game-description">Good challenge and high quality game.</p>
                     
                     <div class="game-meta">
-                        <div class="game-rating">
-                            <i class="fas fa-star"></i>
-                            <span>4.9</span>
-                        </div>
+                        <div></div>
                         <div></div>
                     </div>
                     
@@ -935,16 +1396,16 @@
             <!-- Game Card 7 - Free -->
             <div class="game-card" data-category="free" data-game="Maleo Mod Tz">
                 <div class="game-badge badge-free">Free</div>
+                <button class="wishlist-btn" data-game="Maleo Mod Tz">
+                    <i class="far fa-heart"></i>
+                </button>
                 <img src="Maleo .jpg" alt="Maleo mod tz" class="game-image">
                 <div class="game-info">
                     <h3 class="game-title">Maleo Mod TZ</h3>
                     <p class="game-description">Bus mod with Tz traffic and map with high quality .</p>
                     
                     <div class="game-meta">
-                        <div class="game-rating">
-                            <i class="fas fa-star"></i>
-                            <span>4.9</span>
-                        </div>
+                        <div></div>
                         <div></div>
                     </div>
                     
@@ -957,16 +1418,16 @@
             <!-- Game Card 8 - Free -->
             <div class="game-card" data-category="free" data-game="Tomb rider">
                 <div class="game-badge badge-free">Free</div>
+                <button class="wishlist-btn" data-game="Tomb rider">
+                    <i class="far fa-heart"></i>
+                </button>
                 <img src="tomb rider .jpeg" alt="Tomb raider" class="game-image">
                 <div class="game-info">
                     <h3 class="game-title">Tomb rider</h3>
                     <p class="game-description">The best adventure, action game of all time.</p>
                     
                     <div class="game-meta">
-                        <div class="game-rating">
-                            <i class="fas fa-star"></i>
-                            <span>4.9</span>
-                        </div>
+                        <div></div>
                         <div></div>
                     </div>
                     
@@ -979,16 +1440,16 @@
      <!-- Game Card 9 - Free -->
             <div class="game-card" data-category="free" data-game="God of war ">
                 <div class="game-badge badge-free">Free</div>
+                <button class="wishlist-btn" data-game="God of war">
+                    <i class="far fa-heart"></i>
+                </button>
                 <img src="God of war .jpeg" alt="God Of War " class="game-image">
                 <div class="game-info">
                     <h3 class="game-title">God of war</h3>
                     <p class="game-description">God of war ghost of sparta good game with high quality .</p>
                     
                     <div class="game-meta">
-                        <div class="game-rating">
-                            <i class="fas fa-star"></i>
-                            <span>4.9</span>
-                        </div>
+                        <div></div>
                         <div></div>
                     </div>
                     
@@ -1001,16 +1462,16 @@
      <!-- Game Card 10 - Free -->
             <div class="game-card" data-category="free" data-game="Tomb rider ">
                 <div class="game-badge badge-free">Free</div>
+                <button class="wishlist-btn" data-game="Spiderman 3 PSP">
+                    <i class="far fa-heart"></i>
+                </button>
                 <img src="Spiderman .jpg" alt="Spiderman " class="game-image">
                 <div class="game-info">
                     <h3 class="game-title">Spiderman 3 PSP</h3>
                     <p class="game-description">spider man the best open world game af all time .</p>
                     
                     <div class="game-meta">
-                        <div class="game-rating">
-                            <i class="fas fa-star"></i>
-                            <span>4.9</span>
-                        </div>
+                        <div></div>
                         <div></div>
                     </div>
                     
@@ -1022,6 +1483,8 @@
         
                                    
     </section>
+
+ 
 
     <!-- About Us Page -->
     <section class="about-page" id="about-page">
@@ -1087,7 +1550,371 @@
         </div>
     </footer>
 
+    <!-- Cart Modal -->
+    <div class="modal" id="cart-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Your Cart</h2>
+                <button class="close-modal" id="close-cart">&times;</button>
+            </div>
+            <div class="modal-body" id="cart-items">
+                <!-- Cart items will be added here dynamically -->
+                <p>Your cart is empty</p>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn secondary" id="continue-shopping">Continue Shopping</button>
+                <button class="modal-btn primary" id="checkout-btn">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Loading Animation -->
+    <div class="loading" id="loading">
+        <div class="loading-spinner"></div>
+    </div>
+
     <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('click', function() {
+            document.body.classList.toggle('light-theme');
+            const icon = this.querySelector('i');
+            if (document.body.classList.contains('light-theme')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        });
+
+        // Shopping Cart Functionality
+        const cartIcon = document.getElementById('cart-icon');
+        const cartModal = document.getElementById('cart-modal');
+        const closeCart = document.getElementById('close-cart');
+        const cartItems = document.getElementById('cart-items');
+        const cartCount = document.getElementById('cart-count');
+        const checkoutBtn = document.getElementById('checkout-btn');
+        const continueShopping = document.getElementById('continue-shopping');
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+
+        let cart = [];
+
+        // Open/Close Cart Modal
+        cartIcon.addEventListener('click', function() {
+            cartModal.style.display = 'block';
+        });
+
+        closeCart.addEventListener('click', function() {
+            cartModal.style.display = 'none';
+        });
+
+        continueShopping.addEventListener('click', function() {
+            cartModal.style.display = 'none';
+        });
+
+        // Add to Cart
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const game = this.getAttribute('data-game');
+                const price = parseFloat(this.getAttribute('data-price'));
+                
+                // Check if item already in cart
+                const existingItem = cart.find(item => item.game === game);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        game: game,
+                        price: price,
+                        quantity: 1
+                    });
+                }
+                
+                updateCart();
+                showToast(`${game} added to cart!`);
+            });
+        });
+
+        // Update Cart
+        function updateCart() {
+            cartItems.innerHTML = '';
+            let total = 0;
+            let count = 0;
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p>Your cart is empty</p>';
+            } else {
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    total += itemTotal;
+                    count += item.quantity;
+                    
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'cart-item';
+                    cartItem.innerHTML = `
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <div>
+                                <h4 style="margin: 0; color: #fff;">${item.game}</h4>
+                                <p style="margin: 0; color: #b0b0b0;">$${item.price} x ${item.quantity}</p>
+                            </div>
+                            <button class="remove-item" data-game="${item.game}" style="background: none; border: none; color: #ff4757; cursor: pointer;">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    `;
+                    
+                    cartItems.appendChild(cartItem);
+                });
+                
+                // Add total
+                const totalElement = document.createElement('div');
+                totalElement.style.borderTop = '1px solid rgba(255, 255, 255, 0.1)';
+                totalElement.style.paddingTop = '1rem';
+                totalElement.style.marginTop = '1rem';
+                totalElement.innerHTML = `<h3 style="margin: 0; text-align: right;">Total: $${total.toFixed(2)}</h3>`;
+                cartItems.appendChild(totalElement);
+                
+                // Add event listeners to remove buttons
+                const removeButtons = document.querySelectorAll('.remove-item');
+                removeButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const game = this.getAttribute('data-game');
+                        cart = cart.filter(item => item.game !== game);
+                        updateCart();
+                        showToast(`${game} removed from cart!`);
+                    });
+                });
+            }
+            
+            cartCount.textContent = count;
+        }
+
+        // Checkout
+        checkoutBtn.addEventListener('click', function() {
+            if (cart.length === 0) {
+                showToast('Your cart is empty!');
+                return;
+            }
+            
+            showLoading();
+            setTimeout(() => {
+                hideLoading();
+                showToast('Checkout completed successfully!');
+                cart = [];
+                updateCart();
+                cartModal.style.display = 'none';
+            }, 2000);
+        });
+
+        // Wishlist Functionality
+        const wishlistButtons = document.querySelectorAll('.wishlist-btn');
+        let wishlist = [];
+
+        wishlistButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const game = this.getAttribute('data-game');
+                const icon = this.querySelector('i');
+                
+                if (this.classList.contains('active')) {
+                    this.classList.remove('active');
+                    icon.classList.remove('fas');
+                    icon.classList.add('far');
+                    wishlist = wishlist.filter(item => item !== game);
+                    showToast(`${game} removed from wishlist!`);
+                } else {
+                    this.classList.add('active');
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                    wishlist.push(game);
+                    showToast(`${game} added to wishlist!`);
+                }
+            });
+        });
+
+        // Newsletter Subscription
+        const newsletterForm = document.getElementById('newsletter-form');
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input').value;
+            showLoading();
+            setTimeout(() => {
+                hideLoading();
+                showToast('Thank you for subscribing to our newsletter!');
+                this.reset();
+            }, 1500);
+        });
+
+        // Music Player Functionality
+        const musicToggle = document.getElementById('music-toggle');
+        const musicPlayer = document.getElementById('music-player');
+        const closeMusic = document.getElementById('close-music');
+        const playPauseBtn = document.getElementById('play-pause-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const currentTimeEl = document.getElementById('current-time');
+        const totalTimeEl = document.getElementById('total-time');
+        const musicTitle = document.getElementById('music-title');
+        const playlistItems = document.querySelectorAll('.playlist-item');
+        const playIcon = document.getElementById('play-icon');
+
+        let currentTrack = 0;
+        let isPlaying = false;
+        let audio = new Audio();
+
+        // Open/Close Music Player
+        musicToggle.addEventListener('click', function() {
+            musicPlayer.classList.toggle('active');
+        });
+
+        closeMusic.addEventListener('click', function() {
+            musicPlayer.classList.remove('active');
+        });
+
+        // Play/Pause functionality
+        playPauseBtn.addEventListener('click', function() {
+            if (isPlaying) {
+                pauseMusic();
+            } else {
+                playMusic();
+            }
+        });
+
+        // Previous track
+        prevBtn.addEventListener('click', function() {
+            currentTrack--;
+            if (currentTrack < 0) {
+                currentTrack = playlistItems.length - 1;
+            }
+            loadTrack(currentTrack);
+            playMusic();
+        });
+
+        // Next track
+        nextBtn.addEventListener('click', function() {
+            currentTrack++;
+            if (currentTrack >= playlistItems.length) {
+                currentTrack = 0;
+            }
+            loadTrack(currentTrack);
+            playMusic();
+        });
+
+        // Load track
+        function loadTrack(index) {
+            // Reset active class from all playlist items
+            playlistItems.forEach(item => item.classList.remove('active'));
+            
+            // Set active class to current track
+            playlistItems[index].classList.add('active');
+            
+            // Get track data
+            const trackSrc = playlistItems[index].getAttribute('data-src');
+            const trackName = playlistItems[index].querySelector('span').textContent;
+            
+            // Update audio source and title
+            audio.src = trackSrc;
+            musicTitle.textContent = trackName;
+            
+            // Reset progress bar
+            progressBar.style.width = '0%';
+            currentTimeEl.textContent = '0:00';
+            
+            // When metadata is loaded, update total time
+            audio.addEventListener('loadedmetadata', function() {
+                totalTimeEl.textContent = formatTime(audio.duration);
+            });
+        }
+
+        // Play music
+        function playMusic() {
+            if (audio.src === '') {
+                loadTrack(currentTrack);
+            }
+            audio.play();
+            isPlaying = true;
+            playIcon.classList.remove('fa-play');
+            playIcon.classList.add('fa-pause');
+        }
+
+        // Pause music
+        function pauseMusic() {
+            audio.pause();
+            isPlaying = false;
+            playIcon.classList.remove('fa-pause');
+            playIcon.classList.add('fa-play');
+        }
+
+        // Update progress bar
+        audio.addEventListener('timeupdate', function() {
+            if (audio.duration) {
+                const progressPercent = (audio.currentTime / audio.duration) * 100;
+                progressBar.style.width = `${progressPercent}%`;
+                currentTimeEl.textContent = formatTime(audio.currentTime);
+            }
+        });
+
+        // Click on progress bar to seek
+        const progressContainer = document.querySelector('.music-progress');
+        progressContainer.addEventListener('click', function(e) {
+            const width = this.clientWidth;
+            const clickX = e.offsetX;
+            const duration = audio.duration;
+            
+            audio.currentTime = (clickX / width) * duration;
+        });
+
+        // When track ends, play next
+        audio.addEventListener('ended', function() {
+            currentTrack++;
+            if (currentTrack >= playlistItems.length) {
+                currentTrack = 0;
+            }
+            loadTrack(currentTrack);
+            playMusic();
+        });
+
+        // Format time in minutes and seconds
+        function formatTime(seconds) {
+            let minutes = Math.floor(seconds / 60);
+            let secs = Math.floor(seconds % 60);
+            return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+
+        // Click on playlist item to play that track
+        playlistItems.forEach((item, index) => {
+            item.addEventListener('click', function() {
+                currentTrack = index;
+                loadTrack(currentTrack);
+                playMusic();
+            });
+        });
+
+        // Toast Notifications
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Loading Animation
+        function showLoading() {
+            document.getElementById('loading').style.display = 'block';
+        }
+
+        function hideLoading() {
+            document.getElementById('loading').style.display = 'none';
+        }
+
         // Navigation between Home and About Us pages
         document.getElementById('about-link').addEventListener('click', function(e) {
             e.preventDefault();
@@ -1187,6 +2014,10 @@
                     document.querySelector('[data-filter="all"]').classList.add('active');
                 });
             });
+
+            // Add loading simulation for demonstration
+            showLoading();
+            setTimeout(hideLoading, 1500);
         });
     </script>
 </body>
