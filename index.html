@@ -17,8 +17,357 @@
             background-color: #0f1419;
             color: #e0e0e0;
             line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
         }
 
+        body.light-mode {
+            background-color: #f5f7fa;
+            color: #333;
+        }
+
+        /* Floating Controls */
+        .floating-controls {
+            position: fixed;
+            right: 20px;
+            bottom: 100px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .control-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+            transition: all 0.3s;
+        }
+
+        .control-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(108, 92, 231, 0.6);
+        }
+
+        /* Music Player */
+        .music-player {
+            position: fixed;
+            right: 20px;
+            bottom: 180px;
+            width: 300px;
+            background: rgba(26, 31, 46, 0.95);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: none;
+            border: 1px solid rgba(108, 92, 231, 0.3);
+        }
+
+        .music-player.show {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .player-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .player-header h3 {
+            color: #6c5ce7;
+            font-size: 1.1rem;
+        }
+
+        .close-player {
+            background: none;
+            border: none;
+            color: #e0e0e0;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .playlist {
+            max-height: 200px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+        }
+
+        .playlist-item {
+            padding: 10px;
+            margin: 5px 0;
+            background: rgba(15, 20, 25, 0.5);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .playlist-item:hover {
+            background: rgba(108, 92, 231, 0.2);
+        }
+
+        .playlist-item.active {
+            background: rgba(108, 92, 231, 0.3);
+            border-left: 3px solid #6c5ce7;
+        }
+
+        .player-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .player-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(108, 92, 231, 0.2);
+            border: 1px solid rgba(108, 92, 231, 0.5);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .player-btn:hover {
+            background: rgba(108, 92, 231, 0.4);
+        }
+
+        .play-btn {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #6c5ce7, #a29bfe);
+            border-radius: 2px;
+            width: 0%;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            background: linear-gradient(90deg, #00b894, #00a085);
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 184, 148, 0.4);
+            z-index: 1001;
+            transform: translateX(120%);
+            transition: transform 0.3s ease;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        /* Particle Background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Floating Game Icons */
+        .floating-icons {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-icon {
+            position: absolute;
+            font-size: 24px;
+            color: rgba(108, 92, 231, 0.1);
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+            }
+        }
+
+        /* Gamification Elements */
+        .xp-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 1002;
+        }
+
+        .xp-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #ff9a00, #ff6b00);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        .level-badge {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 1002;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Typing Effect */
+        .typing-effect {
+            display: inline-block;
+            border-right: 2px solid #6c5ce7;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 3.5s steps(40, end), blink 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink {
+            from, to { border-color: transparent }
+            50% { border-color: #6c5ce7 }
+        }
+
+        /* Enhanced Animations for Existing Elements */
+        .game-card {
+            animation: fadeInUp 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h2 {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px rgba(108, 92, 231, 0.5);
+            }
+            to {
+                text-shadow: 0 0 20px rgba(108, 92, 231, 0.8), 0 0 30px rgba(108, 92, 231, 0.6);
+            }
+        }
+
+        /* Light Mode Styles */
+        body.light-mode .game-card {
+            background-color: #ffffff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-mode .search-container,
+        body.light-mode .about-text,
+        body.light-mode .team-member {
+            background-color: #ffffff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        body.light-mode .search-input {
+            background-color: #f0f2f5;
+            color: #333;
+        }
+
+        /* Existing styles remain the same below... */
         /* Header Styles */
         header {
             background-color: #1a1f2e;
@@ -27,6 +376,12 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            transition: background-color 0.3s;
+        }
+
+        body.light-mode header {
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .header-container {
@@ -71,6 +426,10 @@
             border-radius: 4px;
         }
 
+        body.light-mode nav a {
+            color: #333;
+        }
+
         nav a:hover {
             color: #6c5ce7;
             background-color: rgba(108, 92, 231, 0.1);
@@ -106,7 +465,11 @@
             color: #b0b0b0;
         }
 
-        /* Trending Games Slider - Moved between Hero and Search */
+        body.light-mode .hero p {
+            color: #666;
+        }
+
+        /* Trending Games Slider */
         .trending-section {
             background: linear-gradient(90deg, #1a1f2e, #2d3447);
             padding: 2.5rem 0;
@@ -115,6 +478,11 @@
             margin-bottom: 0;
             border-radius: 0;
             border-bottom: 3px solid #6c5ce7;
+            transition: background 0.3s;
+        }
+
+        body.light-mode .trending-section {
+            background: linear-gradient(90deg, #e3e6f0, #d5d9e7);
         }
 
         .trending-header {
@@ -158,6 +526,10 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
         }
 
+        body.light-mode .trending-item {
+            background: rgba(255, 255, 255, 0.9);
+        }
+
         .trending-item:hover {
             transform: translateY(-8px);
             background: rgba(108, 92, 231, 0.15);
@@ -180,9 +552,17 @@
             font-weight: 600;
         }
 
+        body.light-mode .trending-info h4 {
+            color: #333;
+        }
+
         .trending-info p {
             color: #b0b0b0;
             font-size: 0.9rem;
+        }
+
+        body.light-mode .trending-info p {
+            color: #666;
         }
 
         @keyframes slide {
@@ -207,6 +587,7 @@
             padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s;
         }
 
         .search-container h2 {
@@ -231,6 +612,7 @@
             background-color: #0f1419;
             color: #e0e0e0;
             font-size: 1rem;
+            transition: all 0.3s;
         }
 
         .search-input:focus {
@@ -303,6 +685,10 @@
             color: #e0e0e0;
         }
 
+        body.light-mode .section-title {
+            color: #333;
+        }
+
         .filter-buttons {
             display: flex;
             justify-content: center;
@@ -321,6 +707,11 @@
             transition: all 0.3s;
         }
 
+        body.light-mode .filter-btn {
+            background-color: #e3e6f0;
+            color: #333;
+        }
+
         .filter-btn.active {
             background: linear-gradient(90deg, #6c5ce7, #a29bfe);
             color: white;
@@ -328,6 +719,10 @@
 
         .filter-btn:hover:not(.active) {
             background-color: #3a4157;
+        }
+
+        body.light-mode .filter-btn:hover:not(.active) {
+            background-color: #d5d9e7;
         }
 
         .games-grid {
@@ -402,10 +797,18 @@
             color: #fff;
         }
 
+        body.light-mode .game-title {
+            color: #333;
+        }
+
         .game-description {
             color: #b0b0b0;
             margin-bottom: 1.5rem;
             font-size: 0.9rem;
+        }
+
+        body.light-mode .game-description {
+            color: #666;
         }
 
         .game-meta {
@@ -480,6 +883,10 @@
             color: #e0e0e0;
         }
 
+        body.light-mode .about-page h2 {
+            color: #333;
+        }
+
         .about-content {
             display: flex;
             flex-direction: column;
@@ -544,6 +951,12 @@
             background-color: #1a1f2e;
             padding: 3rem 2rem 1.5rem;
             margin-top: 4rem;
+            transition: background-color 0.3s;
+        }
+
+        body.light-mode footer {
+            background-color: #ffffff;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .footer-content {
@@ -573,6 +986,11 @@
             transition: all 0.3s;
         }
 
+        body.light-mode .social-links a {
+            background-color: #e3e6f0;
+            color: #333;
+        }
+
         .social-links a:hover {
             background-color: #6c5ce7;
             transform: translateY(-5px);
@@ -589,6 +1007,10 @@
             color: #b0b0b0;
             text-decoration: none;
             transition: color 0.3s;
+        }
+
+        body.light-mode .footer-links a {
+            color: #666;
         }
 
         .footer-links a:hover {
@@ -611,6 +1033,10 @@
             text-align: center;
             margin-top: 2rem;
             font-size: 0.9rem;
+        }
+
+        body.light-mode .copyright {
+            color: #999;
         }
 
         /* Responsive Design */
@@ -661,16 +1087,54 @@
             .trending-header h2 {
                 font-size: 1.8rem;
             }
+
+            .music-player {
+                width: calc(100% - 40px);
+                right: 20px;
+                left: 20px;
+            }
+
+            .floating-controls {
+                bottom: 80px;
+                right: 15px;
+            }
+
+            .control-btn {
+                width: 45px;
+                height: 45px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- XP Progress Bar -->
+    <div class="xp-bar">
+        <div class="xp-progress" id="xp-progress"></div>
+    </div>
+    
+    <!-- Level Badge -->
+    <div class="level-badge">
+        <i class="fas fa-trophy"></i>
+        <span id="level-text">Level 1</span>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        Welcome to Games-Store! 🎮
+    </div>
+
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+
+    <!-- Floating Game Icons -->
+    <div class="floating-icons" id="floating-icons"></div>
+
     <!-- Header -->
     <header>
         <div class="header-container">
             <div class="logo">
                 <i class="fas fa-gamepad"></i>
-                <h1>Games-Store</h1>
+                <h1 class="typing-effect">Games-Store</h1>
             </div>
             <nav>
                 <ul>
@@ -691,7 +1155,7 @@
         </div>
     </section>
 
-    <!-- Trending Games Slider - Now between Hero and Search -->
+    <!-- Trending Games Slider -->
     <section class="trending-section">
         <div class="trending-header">
             <h2><i class="fas fa-fire"></i> TRENDING GAMES</h2>
@@ -1122,10 +1586,7 @@
                     </a>
                 </div>
             </div>
-            
-         
-             
-                     
+        </div>
     </section>
 
     <!-- About Us Page -->
@@ -1151,8 +1612,7 @@
                         <p>Founder & CEO</p>
                     </div>
                     <div class="team-member">
-                        <img src="" alt="Team
-            Member">
+                        <img src="" alt="Team Member">
                         <h4></h4>
                         <p>Head of Content</p>
                     </div>
@@ -1193,7 +1653,341 @@
         </div>
     </footer>
 
+    <!-- Floating Controls -->
+    <div class="floating-controls">
+        <button class="control-btn" id="music-btn" title="Music Player">
+            <i class="fas fa-music"></i>
+        </button>
+        <button class="control-btn" id="theme-btn" title="Toggle Dark/Light Mode">
+            <i class="fas fa-moon"></i>
+        </button>
+        <button class="control-btn" id="effects-btn" title="Toggle Effects">
+            <i class="fas fa-magic"></i>
+        </button>
+    </div>
+
+    <!-- Music Player -->
+    <div class="music-player" id="music-player">
+        <div class="player-header">
+            <h3><i class="fas fa-music"></i> Game Music Player</h3>
+            <button class="close-player" id="close-player">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="playlist" id="playlist">          <div class="playlist-item active" data-src="Mustard - Ballin (Lyrics) Feat. Roddy Ricch_1759586118568.mp3">
+                <i class="fas fa-play"></i> Epic Gaming Mix 1
+            </div>
+            <div class="playlist-item" data-src="Eminem - Mockingbird [Official Music Video]_1741881240254.m4a"
+                <i class="fas fa-play"></i> Action Adventure Theme
+            </div>
+            <div class="playlist-item" data-src="Zoe Wees - Control (Lyrics  Lyric Video)_1754121090431.mp3">
+                <i class="fas fa-play"></i> Retro Gaming Vibes
+            </div>
+            <div class="playlist-item" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3">
+                <i class="fas fa-play"></i> Fantasy RPG Music
+            </div>
+            <div class="playlist-item" data-src="">
+                <i class="fas fa-play"></i> Cyberpunk Soundtrack
+            </div>
+        </div>
+        <div class="player-controls">
+            <button class="player-btn" id="prev-btn">
+                <i class="fas fa-step-backward"></i>
+            </button>
+            <button class="player-btn play-btn" id="play-btn">
+                <i class="fas fa-play"></i>
+            </button>
+            <button class="player-btn" id="next-btn">
+                <i class="fas fa-step-forward"></i>
+            </button>
+        </div>
+        <div class="progress-container" id="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <div style="text-align: center; margin-top: 10px; font-size: 0.9rem; color: #8a8fa3;">
+            Volume: <input type="range" id="volume-control" min="0" max="100" value="50">
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Particles.js Library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
     <script>
+        // ========== ENHANCED FEATURES ==========
+
+        // 1. Music Player Functionality
+        const musicPlayer = document.getElementById('music-player');
+        const musicBtn = document.getElementById('music-btn');
+        const closePlayer = document.getElementById('close-player');
+        const playBtn = document.getElementById('play-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const playlistItems = document.querySelectorAll('.playlist-item');
+        const progressContainer = document.getElementById('progress-container');
+        const progressBar = document.getElementById('progress-bar');
+        const volumeControl = document.getElementById('volume-control');
+
+        let currentAudio = new Audio();
+        let currentTrackIndex = 0;
+        let isPlaying = false;
+
+        // Toggle music player
+        musicBtn.addEventListener('click', () => {
+            musicPlayer.classList.toggle('show');
+        });
+
+        closePlayer.addEventListener('click', () => {
+            musicPlayer.classList.remove('show');
+        });
+
+        // Play/Pause functionality
+        playBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                pauseTrack();
+            } else {
+                playTrack();
+            }
+        });
+
+        // Play selected track
+        function playTrack() {
+            const trackSrc = playlistItems[currentTrackIndex].getAttribute('data-src');
+            currentAudio.src = trackSrc;
+            currentAudio.volume = volumeControl.value / 100;
+            currentAudio.play();
+            isPlaying = true;
+            playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            
+            // Update active playlist item
+            playlistItems.forEach(item => item.classList.remove('active'));
+            playlistItems[currentTrackIndex].classList.add('active');
+            
+            showNotification(`Now playing: ${playlistItems[currentTrackIndex].textContent}`);
+        }
+
+        function pauseTrack() {
+            currentAudio.pause();
+            isPlaying = false;
+            playBtn.innerHTML = '<i class="fas fa-play"></i>';
+        }
+
+        // Playlist item clicks
+        playlistItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                currentTrackIndex = index;
+                playTrack();
+            });
+        });
+
+        // Previous/Next track
+        prevBtn.addEventListener('click', () => {
+            currentTrackIndex = (currentTrackIndex - 1 + playlistItems.length) % playlistItems.length;
+            playTrack();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentTrackIndex = (currentTrackIndex + 1) % playlistItems.length;
+            playTrack();
+        });
+
+        // Update progress bar
+        currentAudio.addEventListener('timeupdate', () => {
+            const progressPercent = (currentAudio.currentTime / currentAudio.duration) * 100;
+            progressBar.style.width = `${progressPercent}%`;
+        });
+
+        // Seek functionality
+        progressContainer.addEventListener('click', (e) => {
+            const width = progressContainer.clientWidth;
+            const clickX = e.offsetX;
+            const duration = currentAudio.duration;
+            
+            currentAudio.currentTime = (clickX / width) * duration;
+        });
+
+        // Volume control
+        volumeControl.addEventListener('input', () => {
+            currentAudio.volume = volumeControl.value / 100;
+        });
+
+        // 2. Dark/Light Mode Toggle
+        const themeBtn = document.getElementById('theme-btn');
+        themeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            const icon = themeBtn.querySelector('i');
+            if (document.body.classList.contains('light-mode')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                showNotification('Light mode activated! ☀️');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                showNotification('Dark mode activated! 🌙');
+            }
+        });
+
+        // 3. Effects Toggle
+        const effectsBtn = document.getElementById('effects-btn');
+        let effectsEnabled = true;
+        effectsBtn.addEventListener('click', () => {
+            effectsEnabled = !effectsEnabled;
+            if (effectsEnabled) {
+                particlesJS.load('particles-js', '', particlesConfig);
+                createFloatingIcons();
+                effectsBtn.style.background = 'linear-gradient(135deg, #6c5ce7, #a29bfe)';
+                showNotification('Effects enabled! ✨');
+            } else {
+                document.getElementById('particles-js').innerHTML = '';
+                document.getElementById('floating-icons').innerHTML = '';
+                effectsBtn.style.background = '#2d3447';
+                showNotification('Effects disabled');
+            }
+        });
+
+        // 4. Particles.js Background
+        const particlesConfig = {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#6c5ce7" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#6c5ce7",
+                    opacity: 0.2,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" }
+                }
+            }
+        };
+
+        particlesJS.load('particles-js', '', particlesConfig);
+
+        // 5. Floating Game Icons
+        function createFloatingIcons() {
+            const icons = ['🎮', '👾', '🕹️', '🎯', '⚔️', '🛡️', '🏹', '🧩', '🎲', '♟️'];
+            const container = document.getElementById('floating-icons');
+            
+            for (let i = 0; i < 20; i++) {
+                const icon = document.createElement('div');
+                icon.className = 'floating-icon';
+                icon.textContent = icons[Math.floor(Math.random() * icons.length)];
+                icon.style.left = `${Math.random() * 100}%`;
+                icon.style.animationDelay = `${Math.random() * 20}s`;
+                icon.style.fontSize = `${Math.random() * 20 + 15}px`;
+                container.appendChild(icon);
+            }
+        }
+
+        createFloatingIcons();
+
+        // 6. Gamification System
+        let xp = 0;
+        let level = 1;
+        const xpProgress = document.getElementById('xp-progress');
+        const levelText = document.getElementById('level-text');
+
+        function addXP(points) {
+            xp += points;
+            if (xp >= 100) {
+                xp = xp - 100;
+                level++;
+                levelText.textContent = `Level ${level}`;
+                showNotification(`🎉 Level Up! You're now level ${level}`);
+            }
+            xpProgress.style.width = `${xp}%`;
+        }
+
+        // Add XP for various actions
+        document.addEventListener('click', () => {
+            if (Math.random() > 0.7) addXP(1);
+        });
+
+        document.addEventListener('scroll', () => {
+            if (Math.random() > 0.9) addXP(2);
+        });
+
+        // 7. Back to Top Button
+        const backToTop = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // 8. Notification System
+        function showNotification(message) {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        // 9. Enhanced Game Cards Animation
+        const gameCards = document.querySelectorAll('.game-card');
+        gameCards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
+            card.style.opacity = '1';
+            
+            // Add click animation
+            card.addEventListener('click', (e) => {
+                if (!e.target.closest('.download-btn')) {
+                    card.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        card.style.transform = 'scale(1)';
+                    }, 150);
+                }
+            });
+        });
+
+        // 10. Enhanced Search with Animation
+        const searchInput = document.getElementById('game-search');
+        const searchButton = document.getElementById('search-button');
+        
+        searchButton.addEventListener('click', function() {
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 150);
+        });
+
+        // 11. Auto-play first track on page load (optional)
+        setTimeout(() => {
+            playTrack();
+        }, 2000);
+
+        // ========== EXISTING FUNCTIONALITY ==========
         // Navigation between Home and About Us pages
         document.getElementById('about-link').addEventListener('click', function(e) {
             e.preventDefault();
@@ -1243,6 +2037,9 @@
                             }
                         }
                     });
+                    
+                    // Add XP for filtering
+                    addXP(5);
                 });
             });
             
@@ -1267,6 +2064,9 @@
                     // Reset filter buttons
                     filterButtons.forEach(btn => btn.classList.remove('active'));
                     document.querySelector('[data-filter="all"]').classList.add('active');
+                    
+                    // Add XP for searching
+                    addXP(3);
                 }
             });
             
@@ -1291,6 +2091,9 @@
                     // Reset filter buttons
                     filterButtons.forEach(btn => btn.classList.remove('active'));
                     document.querySelector('[data-filter="all"]').classList.add('active');
+                    
+                    // Add XP for clicking trending
+                    addXP(2);
                 });
             });
         });
