@@ -367,6 +367,182 @@
             color: #333;
         }
 
+        /* WhatsApp Direct Link Generator Styles */
+        .direct-link-section {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .direct-link-section .search-container {
+            background-color: #1a1f2e;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s;
+        }
+
+        body.light-mode .direct-link-section .search-container {
+            background-color: #ffffff;
+        }
+
+        .direct-link-section h2 {
+            color: #25D366;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .link-generator {
+            background: rgba(37, 211, 102, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(37, 211, 102, 0.3);
+            margin-bottom: 1.5rem;
+        }
+
+        .link-controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .link-controls {
+                flex-direction: column;
+            }
+        }
+
+        #game-selector {
+            flex: 1;
+            padding: 0.8rem;
+            border-radius: 5px;
+            background: #0f1419;
+            color: #e0e0e0;
+            border: 1px solid #2d3447;
+            font-size: 1rem;
+        }
+
+        body.light-mode #game-selector {
+            background: #f0f2f5;
+            color: #333;
+        }
+
+        #generate-link {
+            background: linear-gradient(90deg, #25D366, #128C7E);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        #generated-link-container {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        #generated-link {
+            flex: 1;
+            padding: 0.8rem;
+            background: #0f1419;
+            border: 1px solid #2d3447;
+            border-radius: 5px;
+            color: #e0e0e0;
+            font-size: 0.9rem;
+        }
+
+        body.light-mode #generated-link {
+            background: #f0f2f5;
+            color: #333;
+        }
+
+        #copy-link, #share-whatsapp {
+            background: #6c5ce7;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        #share-whatsapp {
+            background: #25D366;
+        }
+
+        #copy-link:hover {
+            background: #5b4bc4;
+        }
+
+        #share-whatsapp:hover {
+            background: #128C7E;
+        }
+
+        #whatsapp-message-preview {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(26, 31, 46, 0.7);
+            border-radius: 5px;
+            display: none;
+        }
+
+        body.light-mode #whatsapp-message-preview {
+            background: rgba(240, 242, 245, 0.7);
+        }
+
+        #message-content {
+            background: white;
+            color: #333;
+            padding: 1rem;
+            border-radius: 5px;
+            font-family: 'Segoe UI', sans-serif;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            max-height: 200px;
+            overflow-y: auto;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .usage-guide {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(108, 92, 231, 0.1);
+            border-radius: 8px;
+        }
+
+        .usage-guide h4 {
+            color: #6c5ce7;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .usage-guide ol {
+            color: #b0b0b0;
+            padding-left: 1.5rem;
+        }
+
+        body.light-mode .usage-guide ol {
+            color: #666;
+        }
+
+        .usage-guide li {
+            margin-bottom: 0.5rem;
+        }
+
         /* Existing styles remain the same below... */
         /* Header Styles */
         header {
@@ -1103,6 +1279,10 @@
                 width: 45px;
                 height: 45px;
             }
+
+            .link-controls {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -1214,6 +1394,79 @@
                 <a href="https://whatsapp.com/channel/0029VbBxz643gvWXQuztjf3C" class="whatsapp-link">
                     <i class="fab fa-whatsapp"></i> Join Our WhatsApp Channel
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Direct Link Generator -->
+    <section class="direct-link-section">
+        <div class="search-container">
+            <h2><i class="fab fa-whatsapp"></i> Generate WhatsApp Direct Game Links</h2>
+            <p style="color: #b0b0b0; margin-bottom: 1.5rem;">
+                Generate links that go directly to specific games. Perfect for sharing in WhatsApp!
+            </p>
+            
+            <div class="link-generator">
+                <div class="link-controls">
+                    <select id="game-selector">
+                        <option value="">Select a game...</option>
+                        <option value="GTA V Mod San Andreas">GTA V Mod San Andreas</option>
+                        <option value="GTA San Andreas">GTA San Andreas</option>
+                        <option value="DFL">DFL</option>
+                        <option value="Bright Memory">Bright Memory</option>
+                        <option value="UFL">UFL</option>
+                        <option value="Call Of Duty">Call Of Duty</option>
+                        <option value="Maleo Mod Tz">Maleo Mod TZ</option>
+                        <option value="Tomb rider">Tomb Rider</option>
+                        <option value="God of war">God of War</option>
+                        <option value="Spiderman">Spiderman 3 PSP</option>
+                        <option value="FC26 PSP">FC26 PSP</option>
+                        <option value="FC26 MOD">FIFA 26 MOD 14 APK</option>
+                        <option value="Carnage Wars">Carnage Wars</option>
+                        <option value="Red Dead Redemption">Red Dead Redemption</option>
+                        <option value="Efootball 2026">Efootball 2026 Psp</option>
+                        <option value="Wild Blood">Wild Blood</option>
+                        <option value="Watch Dogs">Watch Dogs</option>
+                        <option value="Fire-Apocalypse-zombie">Fire-Apocalypse-zombie</option>
+                    </select>
+                    <button id="generate-link">
+                        Generate Link
+                    </button>
+                </div>
+                
+                <div id="generated-link-container">
+                    <p style="color: #b0b0b0; margin-bottom: 0.5rem;">Your direct game link:</p>
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                        <input type="text" id="generated-link" readonly>
+                        <button id="copy-link">
+                            <i class="fas fa-copy"></i> Copy
+                        </button>
+                        <button id="share-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Share
+                        </button>
+                    </div>
+                    
+                    <div id="whatsapp-message-preview">
+                        <h4 style="color: #25D366; margin-bottom: 0.5rem;">WhatsApp Message Preview:</h4>
+                        <div id="message-content">
+                            <!-- Preview will be inserted here -->
+                        </div>
+                        <p style="color: #b0b0b0; font-size: 0.9rem; margin-top: 0.5rem;">
+                            Copy this message and share with your game picture!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="usage-guide">
+                <h4><i class="fas fa-info-circle"></i> How to Use:</h4>
+                <ol>
+                    <li>Select a game from the dropdown</li>
+                    <li>Click "Generate Link"</li>
+                    <li>Copy the generated link</li>
+                    <li>Share in WhatsApp with the game picture</li>
+                    <li>When someone clicks the link, they'll go directly to that game!</li>
+                </ol>
             </div>
         </div>
     </section>
@@ -1674,78 +1927,75 @@
             </div>
             
             <!-- NEW GAME CARD 1 - Free -->
-<div class="game-card" data-category="free" data-game="Wild Blood">
-    <div class="game-badge badge-free">Free</div>
-    <img src="wild blood .jpeg" alt="Mortal Kombat 11" class="game-image">
-    <div class="game-info">
-        <h3 class="game-title">Wild blood</h3>
-        <p class="game-description">Brutal fighting game with legendary characters and fatalities.</p>
-        
-        <div class="game-meta">
-            <div class="game-rating">
-                <i class="fas fa-star"></i>
-                <span></span>
-            </div>
-            <div></div>
-        </div>
-        
-        <a href="https://dl.apkvision.org/wild-blood/Wild-Blood-v1.1.5.apk" class="download-btn">
-            <i class="fas fa-download"></i> Download Now
-            
-        </a>
-    </div>
-</div>
-
-<!-- NEW GAME CARD 2 - Free -->
-<div class="game-card" data-category="premium" data-game="Watch Dogs">
-    <div class="game-badge badge-free">Free</div>
-    <img src="watch dogs .jpeg" alt="Cyberpunk 2077" class="game-image">
-    <div class="game-info">
-        <h3 class="game-title">Watch dogs</h3>
-        <p class="game-description">Open-world.</p>
-        
-        <div class="premium-price">
-            <div>
-                <span class="original-price"></span>
-                <span class="price"></span>
-            </div>
-            <div class="game-rating">
-                <i class="fas fa-star"></i>
-                <span>4.6</span>
-            </div>
-        </div>
-        
-        <a href="https://dl.apkvision.org/watch-dogs/WatchDogsMobileV1.2-apkvision.org.apk" class="download-btn">
-            <i class="fas fa-download"></i> Download Now
-        </a>
-    </div>
-</div>
-
-<!-- NEW GAME CARD 3 - Free -->
-<div class="game-card" data-category="free" data-game="Among Us">
-    <div class="game-badge badge-free">Free</div>
-    <img src="Fire .jpeg" alt="Among Us" class="game-image">
-    <div class="game-info">
-        <h3 class="game-title">Fire-Apocalypse-zombie</h3>
-        <p class="game-description">Multiplayer social deduction game with crewmates and impostors.</p>
-        
-        <div class="game-meta">
-            <div class="game-rating">
-                <i class="fas fa-star"></i>
-                <span>4.7</span>
-            </div>
-            <div>Size: 250 MB</div>
-        </div>
-        
-        <a href="https://dl.apkvision.org/fire-apocalypse-zombie-games/Fire-Apocalypse-Zombie-Games-v1.4.0-mod-apkvision.apk " class="download-btn">
-            <i class="fas fa-download"></i> Download Now
-        </a>
-    </div>
-</div>
-            
+            <div class="game-card" data-category="free" data-game="Wild Blood">
+                <div class="game-badge badge-free">Free</div>
+                <img src="wild blood .jpeg" alt="Wild Blood" class="game-image">
+                <div class="game-info">
+                    <h3 class="game-title">Wild Blood</h3>
+                    <p class="game-description">Brutal fighting game with legendary characters and fatalities.</p>
+                    
+                    <div class="game-meta">
+                        <div class="game-rating">
+                            <i class="fas fa-star"></i>
+                            <span>4.8</span>
+                        </div>
+                        <div></div>
+                    </div>
+                    
+                    <a href="https://dl.apkvision.org/wild-blood/Wild-Blood-v1.1.5.apk" class="download-btn">
+                        <i class="fas fa-download"></i> Download Now
+                    </a>
                 </div>
             </div>
-        
+
+            <!-- NEW GAME CARD 2 - Free -->
+            <div class="game-card" data-category="premium" data-game="Watch Dogs">
+                <div class="game-badge badge-free">Free</div>
+                <img src="watch dogs .jpeg" alt="Watch Dogs" class="game-image">
+                <div class="game-info">
+                    <h3 class="game-title">Watch Dogs</h3>
+                    <p class="game-description">Open-world hacking adventure game.</p>
+                    
+                    <div class="premium-price">
+                        <div>
+                            <span class="original-price"></span>
+                            <span class="price"></span>
+                        </div>
+                        <div class="game-rating">
+                            <i class="fas fa-star"></i>
+                            <span>4.6</span>
+                        </div>
+                    </div>
+                    
+                    <a href="https://dl.apkvision.org/watch-dogs/WatchDogsMobileV1.2-apkvision.org.apk" class="download-btn">
+                        <i class="fas fa-download"></i> Download Now
+                    </a>
+                </div>
+            </div>
+
+            <!-- NEW GAME CARD 3 - Free -->
+            <div class="game-card" data-category="free" data-game="Fire-Apocalypse-zombie">
+                <div class="game-badge badge-free">Free</div>
+                <img src="Fire .jpeg" alt="Fire-Apocalypse-zombie" class="game-image">
+                <div class="game-info">
+                    <h3 class="game-title">Fire-Apocalypse-zombie</h3>
+                    <p class="game-description">Survival game in a zombie apocalypse world.</p>
+                    
+                    <div class="game-meta">
+                        <div class="game-rating">
+                            <i class="fas fa-star"></i>
+                            <span>4.7</span>
+                        </div>
+                        <div>Size: 250 MB</div>
+                    </div>
+                    
+                    <a href="https://dl.apkvision.org/fire-apocalypse-zombie-games/Fire-Apocalypse-Zombie-Games-v1.4.0-mod-apkvision.apk" class="download-btn">
+                        <i class="fas fa-download"></i> Download Now
+                    </a>
+                </div>
+            </div>
+            
+        </div>
     </section>
    
     <!-- About Us Page -->
@@ -2146,6 +2396,186 @@
             playTrack();
         }, 2000);
 
+        // ========== ENHANCED GAME DIRECT ACCESS VIA URL ==========
+        function setupGameDirectAccess() {
+            // Get game parameter from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const gameId = urlParams.get('game');
+            
+            if (gameId) {
+                // Decode the game name
+                const decodedGameId = decodeURIComponent(gameId);
+                
+                // Find the game card with matching data-game attribute
+                const gameCards = document.querySelectorAll('.game-card');
+                let foundGame = null;
+                
+                gameCards.forEach(card => {
+                    const cardGameName = card.getAttribute('data-game').toLowerCase();
+                    const searchGameName = decodedGameId.toLowerCase();
+                    
+                    // Try exact match first
+                    if (cardGameName === searchGameName) {
+                        foundGame = card;
+                    }
+                    // Try partial match
+                    else if (cardGameName.includes(searchGameName) || searchGameName.includes(cardGameName)) {
+                        foundGame = card;
+                    }
+                });
+                
+                if (foundGame) {
+                    // Show the game (in case filters are hiding it)
+                    foundGame.style.display = 'block';
+                    
+                    // Set all filters to "All" to show the game
+                    document.querySelectorAll('.filter-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    document.querySelector('[data-filter="all"]').classList.add('active');
+                    
+                    // Show all games temporarily
+                    gameCards.forEach(card => {
+                        card.style.display = 'block';
+                    });
+                    
+                    // Wait for layout to update, then scroll
+                    setTimeout(() => {
+                        foundGame.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        
+                        // Add highlight effect
+                        const originalBoxShadow = foundGame.style.boxShadow;
+                        const originalBorder = foundGame.style.border;
+                        
+                        foundGame.style.boxShadow = '0 0 40px rgba(108, 92, 231, 0.9)';
+                        foundGame.style.border = '3px solid #6c5ce7';
+                        foundGame.style.zIndex = '100';
+                        
+                        // Pulsating animation
+                        let pulseCount = 0;
+                        const pulseInterval = setInterval(() => {
+                            foundGame.style.transform = pulseCount % 2 === 0 ? 'scale(1.05)' : 'scale(1)';
+                            pulseCount++;
+                            
+                            if (pulseCount > 8) {
+                                clearInterval(pulseInterval);
+                                foundGame.style.transform = 'scale(1)';
+                                
+                                // Remove highlight after animation
+                                setTimeout(() => {
+                                    foundGame.style.boxShadow = originalBoxShadow;
+                                    foundGame.style.border = originalBorder;
+                                    foundGame.style.zIndex = '';
+                                }, 3000);
+                            }
+                        }, 400);
+                        
+                        // Show game title in notification
+                        const gameTitle = foundGame.querySelector('.game-title').textContent;
+                        showNotification(`🎮 Direct access to: ${gameTitle}`);
+                        
+                    }, 800);
+                } else {
+                    showNotification(`Game "${decodedGameId}" not found. Showing all games.`);
+                }
+            }
+        }
+
+        // ========== WHATSAPP DIRECT LINK GENERATOR ==========
+        document.addEventListener('DOMContentLoaded', function() {
+            const gameSelector = document.getElementById('game-selector');
+            const generateBtn = document.getElementById('generate-link');
+            const generatedLinkContainer = document.getElementById('generated-link-container');
+            const generatedLinkInput = document.getElementById('generated-link');
+            const copyBtn = document.getElementById('copy-link');
+            const shareWhatsappBtn = document.getElementById('share-whatsapp');
+            const messagePreview = document.getElementById('whatsapp-message-preview');
+            const messageContent = document.getElementById('message-content');
+            
+            // Generate link when button is clicked
+            generateBtn.addEventListener('click', function() {
+                const selectedGame = gameSelector.value;
+                
+                if (!selectedGame) {
+                    showNotification('Please select a game first!');
+                    return;
+                }
+                
+                // Get the current website URL
+                const baseUrl = window.location.origin + window.location.pathname;
+                
+                // Create the direct link with game parameter
+                const directLink = `${baseUrl}?game=${encodeURIComponent(selectedGame)}`;
+                
+                // Display the link
+                generatedLinkInput.value = directLink;
+                generatedLinkContainer.style.display = 'block';
+                
+                // Generate WhatsApp message
+                const gameCards = document.querySelectorAll('.game-card');
+                let gameDescription = '';
+                
+                gameCards.forEach(card => {
+                    if (card.getAttribute('data-game') === selectedGame) {
+                        const descElement = card.querySelector('.game-description');
+                        if (descElement) {
+                            gameDescription = descElement.textContent;
+                        }
+                    }
+                });
+                
+                const whatsappMessage = `🎮 *${selectedGame}* 🎮\n\n${gameDescription}\n\n👇 Download now:\n${directLink}\n\n📱 From Games-Store`;
+                
+                // Update message preview
+                messageContent.textContent = whatsappMessage;
+                messagePreview.style.display = 'block';
+                
+                // Scroll to the generator
+                generatedLinkContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                showNotification(`✅ Link generated for ${selectedGame}`);
+            });
+            
+            // Copy link to clipboard
+            copyBtn.addEventListener('click', function() {
+                generatedLinkInput.select();
+                document.execCommand('copy');
+                
+                // Visual feedback
+                const originalText = copyBtn.innerHTML;
+                copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                copyBtn.style.background = '#00b894';
+                
+                setTimeout(() => {
+                    copyBtn.innerHTML = originalText;
+                    copyBtn.style.background = '#6c5ce7';
+                }, 2000);
+                
+                showNotification('Link copied to clipboard! 📋');
+            });
+            
+            // Share to WhatsApp
+            shareWhatsappBtn.addEventListener('click', function() {
+                const message = messageContent.textContent;
+                const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+                window.open(whatsappUrl, '_blank');
+            });
+            
+            // Auto-detect game from URL and select it in dropdown
+            const urlParams = new URLSearchParams(window.location.search);
+            const gameFromUrl = urlParams.get('game');
+            
+            if (gameFromUrl) {
+                // Try to find and select the game in dropdown
+                for (let i = 0; i < gameSelector.options.length; i++) {
+                    if (gameSelector.options[i].value.toLowerCase() === gameFromUrl.toLowerCase()) {
+                        gameSelector.value = gameSelector.options[i].value;
+                        break;
+                    }
+                }
+            }
+        });
+
         // ========== EXISTING FUNCTIONALITY ==========
         // Navigation between Home and About Us pages
         document.getElementById('about-link').addEventListener('click', function(e) {
@@ -2255,6 +2685,9 @@
                     addXP(2);
                 });
             });
+
+            // Initialize game direct access
+            setupGameDirectAccess();
         });
     </script>
 </body>
